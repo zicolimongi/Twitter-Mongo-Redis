@@ -1,0 +1,14 @@
+<div class="row">
+  <div class="col-xs-12">
+    <%= simple_form_for([:logged, @tweet], html: { class: "form-horizontal" }) do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :description %>
+
+      <div class="form-actions">
+        <%= f.button :submit, class: "btn btn-primary" %>
+        <%= link_to 'Back', logged_tweets_path, class: "btn btn-default" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

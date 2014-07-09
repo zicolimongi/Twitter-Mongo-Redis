@@ -1,0 +1,33 @@
+<h1>Users</h1>
+
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th colspan="2">Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td class="follow-action">
+              <% if current_user.following_ids.include?(user.id) %>
+                <div class="btn btn-primary following" data-user-id=<%= user.id %>>Following</div>
+              <% else %>
+                <div class="btn btn-default follow" data-user-id=<%= user.id %>>Follow</div>
+              <% end -%>
+            </td>
+            <td><%= link_to "Show", logged_user_path(user), class: "btn btn-primary" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate @users %>
+  </div>
+</div>
