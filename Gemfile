@@ -37,6 +37,8 @@ gem 'simple_form', "~> 3.0.2"
 
 gem "will_paginate_mongoid", "~> 2.0.1"
 
+gem 'redis', '3.1.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

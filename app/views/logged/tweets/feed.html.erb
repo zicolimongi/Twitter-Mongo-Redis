@@ -15,9 +15,9 @@
       <tbody>
         <% @tweets.each do |tweet| %>
           <tr>
-            <td><%= tweet.description %></td>
-            <td><%= tweet.user.name %></td>
-            <td><%= tweet.created_at %></td>
+            <td><%= tweet["description"] %></td>
+            <td><%= tweet["user_name"] %></td>
+            <td><%= tweet["created_at"] %></td>
           </tr>
         <% end %>
       </tbody>
@@ -26,6 +26,5 @@
     <br>
 
     <%= link_to 'New Tweet', new_logged_tweet_path, class: "btn btn-primary" %>
-    <%= will_paginate @tweets, class: "pull-right" %>
   </div>
 </div>

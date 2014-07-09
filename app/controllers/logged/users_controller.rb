@@ -45,6 +45,7 @@ class Logged::UsersController < Logged::BaseController
     user.follower_ids.push(current_user.id)
     respond_to do |format|
       if current_user.save && user.save
+        current_user.remake_feed
         format.json { render json: user.to_json }
       else
         format.json { render json: user.errors, status: :unprocessable_entity }
@@ -58,6 +59,7 @@ class Logged::UsersController < Logged::BaseController
     user.follower_ids.delete(current_user.id)
     respond_to do |format|
       if current_user.save && user.save
+        current_user.remake_feed
         format.json { render json: user.to_json }
       else
         format.json { render json: user.errors, status: :unprocessable_entity }

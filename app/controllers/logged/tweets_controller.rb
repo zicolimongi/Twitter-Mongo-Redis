@@ -2,7 +2,7 @@ class Logged::TweetsController < Logged::BaseController
   before_action :set_tweet, only: [:edit, :update, :destroy]
 
   def feed
-    @tweets = Tweet.in(user_id: current_user.following_ids).desc("created_at").paginate(:page => params[:page], :per_page => 30)
+    @tweets = Tweet.feed_of current_user
   end
 
   # GET /tweets
