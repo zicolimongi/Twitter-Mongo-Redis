@@ -9,13 +9,16 @@
         <th>Tweet</th>
       </thead>
       <tbody>
-        <tr>
-          <td><% @user.tweets.each do |tweet| %>
+        <% @tweets.each do |tweet| %>
+          <tr>
+            <td>
               <%= tweet.description %>
-            <% end -%></td>
-        </tr>
+            </td>
+          </tr>
+        <% end -%>
       </tbody>
     </table>
-    <%= link_to "Back", :back, class: "btn btn-default" %>
+    <%= will_paginate @tweets %>
+    <%= link_to "Back", :back, class: "btn btn-default pull-right" %>
   </div>
 </div>

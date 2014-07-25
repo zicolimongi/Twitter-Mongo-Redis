@@ -15,6 +15,7 @@ class Logged::UsersController < Logged::BaseController
 
   def show
     @user = User.find(params[:id])
+    @tweets = @user.tweets.paginate(:page => params[:page], :per_page => 30)
   end
 
   def edit
