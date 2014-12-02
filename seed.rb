@@ -9,5 +9,9 @@ User.all.each do |user|
 end
 
 User.all.each do |user|
+  user.follower_ids = User.where(:id.ne => user.id).limit(10).map(&:id)
+  user.following_ids = User.where(:id.ne => user.id).desc('id').limit(10).map(&:id)
+  user.save
+  p "remaking feed #{user.id}"
   user.remake_feed
 end
